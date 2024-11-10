@@ -30,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col`}>
+      <body
+        className={`flex flex-col  w-full  items-center min-h-screen h-auto`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -38,7 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <Separator />
+          <Separator className="max-w-[1400px]" />
           {children}
         </ThemeProvider>
       </body>

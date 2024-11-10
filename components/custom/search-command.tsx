@@ -23,7 +23,7 @@ export function SkeletonDemo() {
 
 export function SearchCommand() {
   return (
-    <Command className="rounded-lg border shadow-md md:min-w-[450px] border-none">
+    <Command className="rounded-lg border shadow-md md:min-w-[450px] border-none ">
       <CommandInput placeholder="Search Product..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

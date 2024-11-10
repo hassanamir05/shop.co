@@ -21,7 +21,7 @@ import { NavbarSheet } from "./mobile-navbar";
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-row justify-between px-[20px] py-[5px] max-w-[1400px] xxs:py-[10px]">
+    <nav className="flex flex-row justify-between px-[20px] py-[5px] w-full xxs:py-[10px] max-w-[1400px]">
       <div className="flex flex-row">
         <NavbarSheet />
 
