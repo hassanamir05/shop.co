@@ -2,18 +2,7 @@
 
 import React from "react";
 
-import {
-  Dialog,
-  DialogPortal,
-  DialogOverlay,
-  DialogTrigger,
-  DialogClose,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
-} from "../ui/dialog";
+import { Dialog, DialogTrigger, DialogContent } from "../ui/dialog";
 
 import { Search } from "lucide-react";
 

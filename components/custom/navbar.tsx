@@ -8,11 +8,8 @@ import { ShoppingBag, AlignLeft } from "lucide-react";
 }
 import NavigationBar from "../groups/navigation";
 import { Button } from "../ui/button";
-import { AlertDialog } from "../ui/alert-dialog";
 
 import Link from "next/link";
-import { Input } from "../ui/input";
-import { Sheet } from "../ui/sheet";
 
 import { SearchDialog } from "./search-dialog";
 

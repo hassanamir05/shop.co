@@ -1,19 +1,15 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { AlignLeft, ShoppingCart, ShoppingBag } from "lucide-react";
+import { AlignLeft, ShoppingBag } from "lucide-react";
 
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { Skeleton } from "../ui/skeleton";
 import {
   Accordion,
   AccordionContent,
