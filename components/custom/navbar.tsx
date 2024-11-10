@@ -18,6 +18,8 @@ import { SearchDialog } from "./search-dialog";
 
 import { ShoppingCartSheet } from "./shopping-cart";
 
+import { ThemeToggleButton } from "../ui/theme-toggle-button";
+
 import { NavbarSheet } from "./mobile-navbar";
 
 const Navbar = () => {
@@ -44,7 +46,9 @@ const Navbar = () => {
 
         <ShoppingCartSheet />
 
-        <Button>Signin</Button>
+        <ThemeToggleButton />
+
+        <Button>Sign In</Button>
       </div>
     </nav>
   );
