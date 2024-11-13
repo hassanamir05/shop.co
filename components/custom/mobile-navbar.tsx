@@ -61,6 +61,8 @@ const accordtionData: AccordionData[] = [
   },
 ];
 
+import { ThemeToggleButton } from "../ui/theme-toggle-button";
+
 export function LinkAccordion({ title, links }: AccordionData) {
   return (
     <Accordion type="single" collapsible>
@@ -89,7 +91,10 @@ export function NavbarSheet() {
         </Button>
       </SheetTrigger>
 
-      <SheetContent className="xxs:max-w-[270px] xs:max-w-[300px] md:max-w-[350px] xxs:flex xs:flex flex-col md:hidden">
+      <SheetContent
+        className="xxs:max-w-[270px] xs:max-w-[300px] md:max-w-[350px] xxs:flex xs:flex flex-col md:hidden"
+        side="left"
+      >
         <SheetHeader className="flex flex-col">
           <SheetTitle className="flex items-center">
             <ShoppingBag height={21} /> Shop.co
@@ -99,6 +104,7 @@ export function NavbarSheet() {
         {accordtionData.map((data, index) => (
           <LinkAccordion key={index} title={data.title} links={data.links} />
         ))}
+        <ThemeToggleButton />
       </SheetContent>
     </Sheet>
   );

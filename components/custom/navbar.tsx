@@ -43,7 +43,7 @@ const Navbar = () => {
 
         <ShoppingCartSheet />
 
-        <ThemeToggleButton />
+        <ThemeToggleButton customClass="xxs:hidden xs:hidden md:flex" />
 
         <Button>Sign In</Button>
       </div>

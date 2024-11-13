@@ -4,7 +4,11 @@ import { useTheme } from "next-themes";
 import { Button } from "./button";
 import { Sun, Moon } from "lucide-react";
 
-export function ThemeToggleButton() {
+interface Props {
+  customClass?: string;
+}
+
+export function ThemeToggleButton({ customClass }: Props) {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -12,7 +16,11 @@ export function ThemeToggleButton() {
   };
 
   return (
-    <Button onClick={toggleTheme} variant="outline" className="p-2">
+    <Button
+      onClick={toggleTheme}
+      variant="outline"
+      className={`p-2 ${customClass}`}
+    >
       {theme === "light" ? (
         <Moon className="w-4 h-4" />
       ) : (

@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { Separator } from "@/components/ui/separator";
 
+import Footer from "@/components/custom/footer";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -40,8 +42,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <Separator className="max-w-[1400px]" />
+          <Separator className="max-w-[1400px] " />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
