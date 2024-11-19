@@ -14,33 +14,15 @@ import {
 import {
   Activity,
   BarChart3,
-  CreditCard,
-  DollarSign,
   LogOut,
   Menu,
   Package,
-  Search,
   Settings,
   ShoppingCart,
   Users,
 } from "lucide-react";
 
-import {
-  Sheet,
-  SheetPortal,
-  SheetOverlay,
-  SheetTrigger,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription,
-} from "@/components/ui/sheet";
-
-import { SearchDialog } from "@/components/custom/search-dialog";
-
-import { Input } from "@/components/ui/input";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 import { Button } from "@/components/ui/button";
 import { ThemeToggleButton } from "@/components/ui/theme-toggle-button";

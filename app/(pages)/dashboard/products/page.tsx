@@ -6,9 +6,9 @@ import {
   Package,
   DollarSign,
   BarChart,
+  Trash,
   Edit,
   Search,
-  Upload,
   Image as ImageIcon,
   ChevronLeft,
   ChevronRight,
@@ -34,7 +34,6 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,7 +49,6 @@ import {
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -70,6 +68,42 @@ type Product = {
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([
+    {
+      id: "1",
+      name: "T-Shirt",
+      price: "$19.99",
+      stock: 100,
+      image: "/placeholder.svg",
+      description: "Comfortable cotton t-shirt",
+      category: "Clothing",
+    },
+    {
+      id: "2",
+      name: "Jeans",
+      price: "$49.99",
+      stock: 50,
+      image: "/placeholder.svg",
+      description: "Classic blue jeans",
+      category: "Clothing",
+    },
+    {
+      id: "3",
+      name: "Sneakers",
+      price: "$79.99",
+      stock: 25,
+      image: "/placeholder.svg",
+      description: "Stylish and comfortable sneakers",
+      category: "Footwear",
+    },
+    {
+      id: "4",
+      name: "Hat",
+      price: "$14.99",
+      stock: 75,
+      image: "/placeholder.svg",
+      description: "Trendy baseball cap",
+      category: "Accessories",
+    },
     {
       id: "1",
       name: "T-Shirt",
@@ -201,6 +235,16 @@ export default function ProductsPage() {
     setCurrentStep(0);
   };
 
+  const handleDeleteProduct = (productId: string) => {
+    const updatedProducts = products.filter(
+      (product) => product.id !== productId
+    );
+
+    console.log("updated products : ", updatedProducts);
+
+    setProducts(updatedProducts);
+  };
+
   const handleNewProduct = () => {
     setEditingProduct({
       id: "",
@@ -314,24 +358,24 @@ export default function ProductsPage() {
       </div>
 
       <Card>
-        <CardHeader>
-          <CardTitle>Product Inventory</CardTitle>
-          <CardDescription>
-            You have {totalProducts} products in your inventory
-          </CardDescription>
+        <CardHeader className="flex flex-row justify-between items-center space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
+          <div className="w-full max-w-[350px]">
+            <CardTitle>Products Inventory</CardTitle>
+            <CardDescription>
+              You have {products.length} products in your inventory.
+            </CardDescription>
+          </div>
+          <div className="flex items-center space-x-2 max-w-[300px]">
+            <Search className="h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-[250px] sm:w-[250px]"
+            />
+          </div>
         </CardHeader>
         <CardContent>
-          <div className="flex justify-between items-center mb-4">
-            <div className="flex items-center space-x-2">
-              <Search className="h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search products..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-[250px]"
-              />
-            </div>
-          </div>
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -341,7 +385,7 @@ export default function ProductsPage() {
                   <TableHead>Price</TableHead>
                   <TableHead>Stock</TableHead>
                   <TableHead>Category</TableHead>
-                  <TableHead className="text-right">Action</TableHead>
+                  <TableHead className="text-center">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -362,7 +406,7 @@ export default function ProductsPage() {
                     <TableCell>{product.price}</TableCell>
                     <TableCell>{product.stock}</TableCell>
                     <TableCell>{product.category}</TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="text-center">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -370,6 +414,14 @@ export default function ProductsPage() {
                       >
                         <Edit className="h-4 w-4" />
                         <span className="sr-only">Edit</span>
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleDeleteProduct(product.id)}
+                      >
+                        <Trash className="h-4 w-4" />
+                        <span className="sr-only">Delete</span>
                       </Button>
                     </TableCell>
                   </TableRow>

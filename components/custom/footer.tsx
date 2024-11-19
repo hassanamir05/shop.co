@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { ArrowRight, Github, ShoppingBag, Twitter } from "lucide-react";
 import Link from "next/link";
 
-export default function Component() {
+export default function Footer() {
   return (
     <footer className="border-t bg-background text-foreground w-full">
       <div className="mx-auto w-full max-w-[1400px] px-6 py-12">

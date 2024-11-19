@@ -5,7 +5,9 @@ import Image from "next/image";
 import { Heart, Minus, Plus, Star, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import Placeholder from "../../../assets/placeholder.png";
+
+import Placeholder from "../../../../assets/placeholder.png";
+
 import { ArrowRight } from "lucide-react";
 import ProductCard from "@/components/custom/product-card";
 import { H2, P } from "@/components/ui/typography";

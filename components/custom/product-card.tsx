@@ -1,13 +1,7 @@
 import React from "react";
 import { P } from "../ui/typography";
 
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 interface CardProps {
   title: string;

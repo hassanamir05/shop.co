@@ -33,7 +33,7 @@ export function ShoppingCartSheet() {
           <ShoppingCart height={17} />
         </Button>
       </SheetTrigger>
-      <SheetContent className="xxs:max-w-[270px] xs:max-w-[300px] md:max-w-[400px]">
+      <SheetContent className="xxs:max-w-[270px] xs:max-w-[300px] md:max-w-[500px]">
         <SheetHeader>
           <SheetTitle className="flex items-center">
             <ShoppingCart height={17} /> Shopping Cart

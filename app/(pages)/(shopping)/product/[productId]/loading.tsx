@@ -6,7 +6,7 @@ import { Heart, Minus, Plus, Star, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
-import Placeholder from "../../../assets/placeholder.png";
+import Placeholder from "../../../../assets/placeholder.png";
 import ProductCard from "@/components/custom/product-card";
 import { H2, P } from "@/components/ui/typography";
 
@@ -19,7 +19,7 @@ export default function Component() {
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () => setQuantity((prev) => Math.max(1, prev - 1));
 
-useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 5000); // 5 seconds

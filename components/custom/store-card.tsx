@@ -1,4 +1,3 @@
-import { P } from "../ui/typography";
 import { Box } from "lucide-react";
 
 import {

@@ -1,7 +1,7 @@
 {
   /*Icons*/
 }
-import { ShoppingBag, AlignLeft } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 
 {
   /*Compomemts*/

@@ -1,14 +1,19 @@
+"use client";
+
 import Link from "next/link";
-import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 
-export default function Component() {
+import { useState } from "react";
+
+export default function SignInPage() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-sm space-y-8">
+      <div className="w-full space-y-8">
         <Card className="w-full">
           <CardHeader className="space-y-1 pb-0">
             <h1 className="text-2xl font-bold tracking-tight">Sign in</h1>
@@ -71,7 +76,7 @@ export default function Component() {
                 </label>
                 <Input
                   id="email"
-                  placeholder="rodneymullen180@gmail.com"
+                  placeholder="hassan@gmail.com"
                   type="email"
                   autoCapitalize="none"
                   autoComplete="email"
@@ -79,20 +84,46 @@ export default function Component() {
                 />
               </div>
               <div className="grid gap-2">
-                <label
-                  className="text-sm font-medium leading-none"
-                  htmlFor="password"
-                >
-                  Password
-                </label>
-                <Input id="password" type="password" />
+                <div className="flex justify-between">
+                  <label
+                    className="text-sm font-medium leading-none"
+                    htmlFor="password"
+                  >
+                    Password
+                  </label>
+                  <Link
+                    href="/reset-password"
+                    className="text-primary hover:underline text-[12px] w-full text-right"
+                  >
+                    Reset password?
+                  </Link>
+                </div>
+                <Input
+                  id="password"
+                  type={`${showPassword ? "text" : "password"}`}
+                />
               </div>
-              <Link
-                href="/reset-password"
-                className="text-primary hover:underline text-[12px] w-full text-right"
-              >
-                Reset password?
-              </Link>
+            </div>
+
+            <div>
+              <div className="grid gap-1">
+                <div className="flex items-center">
+                  <Input
+                    type="checkbox"
+                    className="h-3 w-3 mx-2"
+                    id="show-password"
+                    onChange={() => {
+                      setShowPassword(!showPassword);
+                    }}
+                  />
+                  <label
+                    className="text-sm font-medium leading-none"
+                    htmlFor="show-password"
+                  >
+                    Show Password
+                  </label>
+                </div>
+              </div>
             </div>
 
             <Button className="w-full" type="submit">

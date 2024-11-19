@@ -1,4 +1,4 @@
-import { H1, H2, H3, Muted, P } from "@/components/ui/typography";
+import { H1, H2, P } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
 
 import ProductCard from "@/components/custom/product-card";

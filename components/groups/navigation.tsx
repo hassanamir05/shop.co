@@ -1,13 +1,10 @@
 import {
-  navigationMenuTriggerStyle,
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuContent,
   NavigationMenuTrigger,
   NavigationMenuLink,
-  NavigationMenuIndicator,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 
 import Link from "next/link";
