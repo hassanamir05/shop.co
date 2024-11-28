@@ -2,6 +2,13 @@
 
 import { useState, useEffect } from "react";
 import {
+  Search,
+  Users,
+  ShoppingCart,
+  TrendingUp,
+  UserPlus,
+} from "lucide-react";
+import {
   Card,
   CardContent,
   CardDescription,
@@ -25,87 +32,72 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Search, Users } from "lucide-react";
-
-interface Customer {
-  id: string;
-  name: string;
-  email: string;
-  orders: number;
-  spent: string;
-}
 
 export default function CustomersPage() {
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState([
+    {
+      id: "1",
+      name: "John Doe",
+      email: "john@example.com",
+      orders: 5,
+      spent: "$1,200",
+    },
+    {
+      id: "2",
+      name: "Jane Smith",
+      email: "jane@example.com",
+      orders: 3,
+      spent: "$800",
+    },
+    {
+      id: "3",
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      orders: 7,
+      spent: "$2,100",
+    },
+    {
+      id: "4",
+      name: "Alice Brown",
+      email: "alice@example.com",
+      orders: 2,
+      spent: "$450",
+    },
+    {
+      id: "5",
+      name: "Charlie Wilson",
+      email: "charlie@example.com",
+      orders: 4,
+      spent: "$950",
+    },
+    {
+      id: "6",
+      name: "Eva Davis",
+      email: "eva@example.com",
+      orders: 6,
+      spent: "$1,500",
+    },
+    {
+      id: "7",
+      name: "Frank Miller",
+      email: "frank@example.com",
+      orders: 1,
+      spent: "$200",
+    },
+    {
+      id: "8",
+      name: "Grace Taylor",
+      email: "grace@example.com",
+      orders: 8,
+      spent: "$2,400",
+    },
+  ]);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [filteredCustomers, setFilteredCustomers] = useState<Customer[]>([]); // Initialize as an empty array
-
+  const [filteredCustomers, setFilteredCustomers] = useState(customers);
   const customersPerPage = 5;
 
-  // Fetch initial customers data
-  useEffect(() => {
-    setCustomers([
-      {
-        id: "1",
-        name: "John Doe",
-        email: "john@example.com",
-        orders: 5,
-        spent: "$1,200",
-      },
-      {
-        id: "2",
-        name: "Jane Smith",
-        email: "jane@example.com",
-        orders: 3,
-        spent: "$800",
-      },
-      {
-        id: "3",
-        name: "Bob Johnson",
-        email: "bob@example.com",
-        orders: 7,
-        spent: "$2,100",
-      },
-      {
-        id: "4",
-        name: "Alice Brown",
-        email: "alice@example.com",
-        orders: 2,
-        spent: "$450",
-      },
-      {
-        id: "5",
-        name: "Charlie Wilson",
-        email: "charlie@example.com",
-        orders: 4,
-        spent: "$950",
-      },
-      {
-        id: "6",
-        name: "Eva Davis",
-        email: "eva@example.com",
-        orders: 6,
-        spent: "$1,500",
-      },
-      {
-        id: "7",
-        name: "Frank Miller",
-        email: "frank@example.com",
-        orders: 1,
-        spent: "$200",
-      },
-      {
-        id: "8",
-        name: "Grace Taylor",
-        email: "grace@example.com",
-        orders: 8,
-        spent: "$2,400",
-      },
-    ]);
-  }, []);
-
-  // Update filteredCustomers when customers or searchTerm changes
   useEffect(() => {
     const filtered = customers.filter(
       (customer) =>
@@ -113,10 +105,19 @@ export default function CustomersPage() {
         customer.email.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredCustomers(filtered);
-    setCurrentPage(1); // Reset to the first page after filtering
+    setCurrentPage(1);
   }, [searchTerm, customers]);
 
-  // Pagination logic
+  // Calculate statistics
+  const totalCustomers = customers.length;
+  const totalOrders = customers.reduce(
+    (sum, customer) => sum + customer.orders,
+    0
+  );
+  const averageOrders = (totalOrders / totalCustomers).toFixed(1);
+  const newCustomersThisMonth = 24;
+
+  // Pagination
   const indexOfLastCustomer = currentPage * customersPerPage;
   const indexOfFirstCustomer = indexOfLastCustomer - customersPerPage;
   const currentCustomers = filteredCustomers.slice(
@@ -127,7 +128,6 @@ export default function CustomersPage() {
 
   return (
     <div className="p-8 space-y-8">
-      {/* Summary Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
@@ -137,20 +137,56 @@ export default function CustomersPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{customers.length}</div>
-            <p className="text-xs text-muted-foreground">+24 this month</p>
+            <div className="text-2xl font-bold">{totalCustomers}</div>
+            <p className="text-xs text-muted-foreground">
+              +{newCustomersThisMonth} this month
+            </p>
           </CardContent>
         </Card>
-        {/* Other summary cards omitted for brevity */}
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
+            <ShoppingCart className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{totalOrders}</div>
+            <p className="text-xs text-muted-foreground">
+              {averageOrders} orders per customer
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-sm font-medium">Active Users</CardTitle>
+            <UserPlus className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">573</div>
+            <p className="text-xs text-muted-foreground">
+              +201 since last hour
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className="text-sm font-medium">Growth Rate</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">+12.5%</div>
+            <p className="text-xs text-muted-foreground">
+              +2.1% from last month
+            </p>
+          </CardContent>
+        </Card>
       </div>
 
-      {/* Customer Table */}
       <Card>
-        <CardHeader className="flex justify-between items-center space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
+        <CardHeader className="flex flex-row justify-between items-center space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
           <div className="w-full max-w-[350px]">
             <CardTitle>Customer List</CardTitle>
             <CardDescription>
-              You have {filteredCustomers.length} registered customers
+              You have {totalCustomers} registered customers
             </CardDescription>
           </div>
           <div className="flex items-center space-x-2 max-w-[300px]">
