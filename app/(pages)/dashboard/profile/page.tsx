@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
 
 export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +36,7 @@ export default function ProfilePage() {
         <CardHeader>
           <div className="flex items-center space-x-4">
             <div className="relative w-20 h-20">
-              <img
+              <Image
                 src="/placeholder.svg"
                 alt="Profile picture"
                 className="rounded-full object-cover w-full h-full"

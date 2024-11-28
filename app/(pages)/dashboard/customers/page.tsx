@@ -33,8 +33,17 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
+interface CustomerProps {
+  id: string;
+  name: string;
+  email: string;
+  orders: number;
+  spent: string;
+}
+
 export default function CustomersPage() {
-  const [customers, setCustomers] = useState([
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const customers: CustomerProps[] = [
     {
       id: "1",
       name: "John Doe",
@@ -91,7 +100,7 @@ export default function CustomersPage() {
       orders: 8,
       spent: "$2,400",
     },
-  ]);
+  ];
 
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
