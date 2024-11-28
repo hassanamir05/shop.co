@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import Placeholder from "../../../../assets/placeholder.png";
 import ProductCard from "@/components/custom/product-card";
-import { H2, P } from "@/components/ui/typography";
+import { P } from "@/components/ui/typography";
 
 export default function Component() {
   const [quantity, setQuantity] = useState(1);

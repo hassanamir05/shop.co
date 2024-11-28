@@ -10,7 +10,7 @@ import Placeholder from "../../../../assets/placeholder.png";
 
 import { ArrowRight } from "lucide-react";
 import ProductCard from "@/components/custom/product-card";
-import { H2, P } from "@/components/ui/typography";
+import { P } from "@/components/ui/typography";
 
 export default function Component() {
   const [quantity, setQuantity] = useState(1);
