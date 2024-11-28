@@ -45,7 +45,9 @@ const Navbar = () => {
 
         <ThemeToggleButton customClass="xxs:hidden xs:hidden md:flex" />
 
-        <Button>Sign In</Button>
+        <Link href="sign-in">
+          <Button>Sign In</Button>
+        </Link>
       </div>
     </nav>
   );

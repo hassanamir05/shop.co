@@ -9,8 +9,8 @@ import React from "react";
 
 export default function Component() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-sm space-y-8">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 w-full">
+      <div className="w-full space-y-8 max-w-[400px]">
         <Card className="w-full">
           <CardHeader className="space-y-1 pb-0">
             <h1 className="text-2xl font-bold tracking-tight">Sign up</h1>

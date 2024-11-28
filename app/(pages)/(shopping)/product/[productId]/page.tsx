@@ -14,7 +14,7 @@ import { P } from "@/components/ui/typography";
 
 export default function Component() {
   const [quantity, setQuantity] = useState(1);
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
@@ -27,7 +27,7 @@ export default function Component() {
           <div className="bg-muted rounded-lg overflow-hidden">
             <Image
               src={Placeholder}
-              alt="Small Bronze Hat"
+              alt="Product Image"
               width={600}
               height={600}
               className="w-full h-full object-cover"
@@ -37,7 +37,9 @@ export default function Component() {
           <div className="space-y-3">
             <div className="flex justify-between items-start">
               <div>
-                <h1 className="text-3xl font-bold">Small Bronze Hat</h1>
+                <h1 className="text-3xl font-bold">
+                  Electronic Gradient Towel
+                </h1>
                 <p className="text-muted-foreground">skateshop</p>
               </div>
               <Button

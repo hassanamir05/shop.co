@@ -12,8 +12,8 @@ export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="w-full space-y-8">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 w-full">
+      <div className="w-full space-y-8 max-w-[400px]">
         <Card className="w-full">
           <CardHeader className="space-y-1 pb-0">
             <h1 className="text-2xl font-bold tracking-tight">Sign in</h1>
@@ -76,7 +76,7 @@ export default function SignInPage() {
                 </label>
                 <Input
                   id="email"
-                  placeholder="hassan@gmail.com"
+                  placeholder="dummyaccount@gmail.com"
                   type="email"
                   autoCapitalize="none"
                   autoComplete="email"
@@ -93,7 +93,7 @@ export default function SignInPage() {
                   </label>
                   <Link
                     href="/reset-password"
-                    className="text-primary hover:underline text-[12px] w-full text-right"
+                    className="text-primary hover:underline text-[12px] w-full text-right underline"
                   >
                     Reset password?
                   </Link>
@@ -107,7 +107,7 @@ export default function SignInPage() {
 
             <div>
               <div className="grid gap-1">
-                <div className="flex items-center">
+                <div className="flex items-center py-[10px]">
                   <Input
                     type="checkbox"
                     className="h-3 w-3 mx-2"
@@ -126,9 +126,11 @@ export default function SignInPage() {
               </div>
             </div>
 
-            <Button className="w-full" type="submit">
-              Sign in
-            </Button>
+            <Link href="dashboard">
+              <Button className="w-full" type="submit">
+                Sign in
+              </Button>
+            </Link>
 
             <div className="flex items-center justify-between text-sm">
               <div className="text-muted-foreground">

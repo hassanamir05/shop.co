@@ -10,50 +10,89 @@ import {
 import { cn } from "@/lib/utils";
 import React from "react";
 
-const components: { title: string; href: string; description: string }[] = [
+const categories: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "",
+    title: "Electronics",
+    href: "/",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "Browse the latest electronics including smartphones, laptops, and accessories.",
   },
   {
-    title: "Hover Card",
-    href: "",
+    title: "Fashion",
+    href: "/",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Explore the newest trends in clothing, shoes, and accessories for men and women.",
   },
   {
-    title: "Progress",
-    href: "",
+    title: "Home & Kitchen",
+    href: "/",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Find appliances, furniture, and kitchen essentials to enhance your home.",
   },
   {
-    title: "Scroll-area",
-    href: "",
-    description: "Visually or semantically separates content.",
+    title: "Beauty & Health",
+    href: "/",
+    description:
+      "Shop for skincare, haircare, health products, and more to stay healthy and beautiful.",
   },
   {
-    title: "Tabs",
-    href: "",
+    title: "Toys & Games",
+    href: "/",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "Discover a wide range of toys and games for kids of all ages.",
   },
   {
-    title: "Tooltip",
-    href: "",
+    title: "Sports & Outdoors",
+    href: "/",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "Get sports gear, fitness equipment, and outdoor adventure tools.",
   },
 ];
+
+const featuredProducts: { title: string; href: string; description: string }[] =
+  [
+    {
+      title: "Smartphone",
+      href: "/product/smartphone",
+      description:
+        "The latest model with cutting-edge features for an enhanced user experience.",
+    },
+    {
+      title: "Wireless Headphones",
+      href: "/product/wireless-headphones",
+      description:
+        "Experience crisp sound quality and comfort with our top-rated headphones.",
+    },
+    {
+      title: "Laptop",
+      href: "/product/laptop",
+      description:
+        "High-performance laptop perfect for work, study, and entertainment.",
+    },
+    {
+      title: "Blender",
+      href: "/product/blender",
+      description: "A powerful blender for smoothies, soups, and more.",
+    },
+    {
+      title: "T-shirt",
+      href: "/product/t-shirt",
+      description: "Stylish and comfortable T-shirts made with soft fabric.",
+    },
+    {
+      title: "Fitness Tracker",
+      href: "/product/fitness-tracker",
+      description:
+        "Track your fitness goals with this sleek and accurate fitness tracker.",
+    },
+  ];
 
 export function NavigationMenuDemo() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Start Buying</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Start Shopping</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -64,21 +103,20 @@ export function NavigationMenuDemo() {
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">Shop.co</div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components that you can copy and
-                      paste into your apps. Accessible. Customizable. Open
-                      Source.
+                      Beautifully designed products that you can easily shop
+                      online. Fast, secure, and convenient.
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem href="/" title="About Us">
+                Learn more about our company and values.
               </ListItem>
-              <ListItem href="" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem href="/" title="Contact Us">
+                Get in touch with our customer support team.
               </ListItem>
-              <ListItem href="" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem href="/" title="FAQs">
+                Frequently asked questions about our products and services.
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -87,14 +125,14 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {categories.map((category) => (
                 <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+                  key={category.title}
+                  title={category.title}
+                  href={category.href}
                 >
-                  {component.description}
+                  {category.description}
                 </ListItem>
               ))}
             </ul>
@@ -102,16 +140,16 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Featured Products</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {featuredProducts.map((product) => (
                 <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+                  key={product.title}
+                  title={product.title}
+                  href={product.href}
                 >
-                  {component.description}
+                  {product.description}
                 </ListItem>
               ))}
             </ul>
@@ -150,7 +188,7 @@ ListItem.displayName = "ListItem";
 
 const NavigationBar = () => {
   return (
-    <div className="xxs:hidden xs:hidden md:flex ">
+    <div className="xxs:hidden xs:hidden md:flex">
       <NavigationMenuDemo />
     </div>
   );

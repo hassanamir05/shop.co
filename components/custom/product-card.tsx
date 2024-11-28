@@ -17,14 +17,18 @@ import { ShoppingCart } from "lucide-react";
 
 import Image from "next/image";
 
+import Link from "next/link";
+
 const ProductCard = (props: CardProps) => {
   return (
     <Card className="min-w-[280px] h-auto fade-in">
-      <Image
-        src={Placeholder}
-        alt="Image"
-        className="rounded-md object-cover rounded-b-none  h-auto  max-w-[280px]"
-      />
+      <Link href={`/product/${props.title}`}>
+        <Image
+          src={Placeholder}
+          alt="Image"
+          className="rounded-md object-cover rounded-b-none  h-auto  max-w-[280px]"
+        />
+      </Link>
       <div className="px-2 pb-3">
         <div className="flex flex-col gap-0 ">
           <P customClass="pt-3">{props.title}</P>
