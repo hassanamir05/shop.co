@@ -40,9 +40,9 @@ const revenueData = [
 
 export default function Dashboard() {
   return (
-    <div className="space-y-4 p-8 fade-in">
+    <div className="space-y-4 p-8 fade-in scrollbar-none">
       <h2 className="text-3xl font-bold">Dashboard</h2>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 scrollbar-none">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>

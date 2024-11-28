@@ -39,7 +39,7 @@ export function ShoppingCartSheet() {
             <ShoppingCart height={17} /> Shopping Cart
           </SheetTitle>
           <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when youre done.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
