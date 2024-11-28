@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import {
   Plus,
   Package,
@@ -486,7 +486,7 @@ export default function ProductsPage() {
               {editingProduct?.id
                 ? "Edit the details of the product here."
                 : "Enter the details of the new product here."}{" "}
-              Click save when you're done.
+              Click save when youre done.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">

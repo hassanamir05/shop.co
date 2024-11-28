@@ -132,7 +132,7 @@ export default function SignInPage() {
 
             <div className="flex items-center justify-between text-sm">
               <div className="text-muted-foreground">
-                Don't have an account?{" "}
+                Dont have an account?{" "}
                 <Link href="/sign-up" className="text-primary hover:underline">
                   Sign up
                 </Link>

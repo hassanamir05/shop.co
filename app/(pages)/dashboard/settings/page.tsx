@@ -21,7 +21,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Store, Truck, CreditCard, Bell, Shield, Globe } from "lucide-react";
+import { Store, Truck, CreditCard, Bell, Shield } from "lucide-react";
 
 export default function EcommerceSettingsPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +57,7 @@ export default function EcommerceSettingsPage() {
                   Store Settings
                 </CardTitle>
                 <CardDescription>
-                  Manage your store's basic information and preferences.
+                  Manage your stores basic information and preferences.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -97,7 +97,7 @@ export default function EcommerceSettingsPage() {
                   Shipping Settings
                 </CardTitle>
                 <CardDescription>
-                  Configure your store's shipping options and rates.
+                  Configure your stores shipping options and rates.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -186,7 +186,7 @@ export default function EcommerceSettingsPage() {
                   Notification Settings
                 </CardTitle>
                 <CardDescription>
-                  Manage your store's notification preferences.
+                  Manage your stores notification preferences.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -225,7 +225,7 @@ export default function EcommerceSettingsPage() {
                   Security Settings
                 </CardTitle>
                 <CardDescription>
-                  Configure your store's security options.
+                  Configure your stores security options.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
