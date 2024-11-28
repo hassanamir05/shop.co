@@ -1,10 +1,73 @@
+"use client";
+
+import { supabase } from "@/lib/supabaseClient";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import React, { useState } from "react";
+
+interface ApiProps {
+  email: string;
+  password: string;
+}
 
 export default function Component() {
+  const [credentials, setCredentials] = useState<ApiProps>({
+    email: "",
+    password: "",
+  });
+
+  const handleCredentialsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setCredentials({
+      ...credentials,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log("inside signup function");
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: credentials.email,
+        password: credentials.password,
+      });
+
+      if (error) {
+        console.error("Error during signup:", error.message);
+        return;
+      }
+
+      console.log("User created successfully:", data.user);
+    } catch (err) {
+      console.error("Unexpected error:", err);
+    }
+  };
+
+  const signUpWithGoogle = async () => {
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+      });
+
+      if (error) {
+        console.error("Error during signup with google!", error.message);
+        return;
+      }
+
+      console.log("user created successfully!", data);
+    } catch (err) {
+      console.error("error : ", err);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-sm space-y-8">
@@ -17,7 +80,11 @@ export default function Component() {
           </CardHeader>
           <CardContent className="space-y-4 pt-6">
             <div className="grid gap-4">
-              <Button variant="outline" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={signUpWithGoogle}
+              >
                 <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                   <path
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -71,7 +138,12 @@ export default function Component() {
                 <Input
                   id="email"
                   placeholder="rodneymullen180@gmail.com"
+                  value={credentials.email}
+                  onChange={(e) => {
+                    handleCredentialsChange(e);
+                  }}
                   type="email"
+                  name="email"
                   autoCapitalize="none"
                   autoComplete="email"
                   autoCorrect="off"
@@ -84,11 +156,23 @@ export default function Component() {
                 >
                   Password
                 </label>
-                <Input id="password" type="password" />
+                <Input
+                  id="password"
+                  type="password"
+                  name="password"
+                  value={credentials.password}
+                  onChange={(e) => {
+                    handleCredentialsChange(e);
+                  }}
+                />
               </div>
             </div>
 
-            <Button className="w-full" type="submit">
+            <Button
+              className="w-full"
+              // type="submit"
+              onClick={(e) => handleSubmit(e)}
+            >
               Continue
             </Button>
 

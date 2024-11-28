@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import Navbar from "@/components/custom/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
 import { Separator } from "@/components/ui/separator";
-
-import Footer from "@/components/custom/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,10 +38,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <Navbar /> */}
           <Separator className="max-w-[1400px] " />
           {children}
-          {/* <Footer /> */}
         </ThemeProvider>
       </body>
     </html>
